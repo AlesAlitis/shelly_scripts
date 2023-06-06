@@ -23,12 +23,8 @@ function updateConfig(oldConfig) {
 }
 
 function setSwitchFromRespons(resp) {
-  // If HA is accessible the response code is 200
-  if (resp.code === 200) currentMode = operationModes.haControlled;
-  else currentMode = operationModes.switchControlled;
-  
-  // Update the mode in the new configuration
-  config.config.in_mode = currentMode;
+  // If HA is accessible the response code is 200 update the current mode and the new configuration
+  currentMode = config.config.in_mode = (resp.code === 200)? operationModes.haControlled : operationModes.switchControlled;
   
   // Get the current output configuration and pass it to updateConfig
   Shelly.call("Switch.GetConfig", {id: outputId}, updateConfig)
