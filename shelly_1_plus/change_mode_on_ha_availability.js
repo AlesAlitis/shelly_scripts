@@ -2,7 +2,7 @@
 const switchId = 0; // For Shelly 1 Plus it's always 0. Change if needed
 const checkPeriod = 10 * 1000; // in ms
 const haUrl = 'http://YOUR_HOME_ASSISTAN_URL_OR_IP:8123'; // As sugested by bvhme
-let mode = "detached"; // Could be "detached", "flip", "follow" or "momentary"
+let mode = "detached"; // Could be "detached", "flip", "follow" or "momentary". Use "detached" when HA is in control
 
 function updateConfig(oldConfig) {
   //Aplly the new config only if the switch is not already working in the desired mode  
